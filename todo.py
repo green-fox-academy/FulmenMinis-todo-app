@@ -40,6 +40,8 @@ class Todo(object):
         file = open("todo_list.txt", "a") 
         file.write(str("\n" + "[ ] " + item)) 
         file.close()
+        if sys.argv[1] == "-a" and sys.argv[2] == "": # ha egy lista csak 2 elemű és a 2. eleme a akkor nincs érv input mögötte
+            print("Unable to add: no task provided")
 
     def remove_item(self, index):
         with open("todo_list.txt","r") as textfile:
@@ -65,24 +67,4 @@ class Todo(object):
         tasks.close()
         
 app = Todo()
-app.controller()        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # with open('todo_list.txt') as f:
-        #     lines = [line.rstrip('\n') for line in open('todo_list.txt')]
-        #     index_num = 1
-        #     if index == index_num:
-        #         for i in lines:
-        #             print(index_num, "[X]" , i)
-        #     else:    
-        #         index_num += 1
-
+app.controller()
